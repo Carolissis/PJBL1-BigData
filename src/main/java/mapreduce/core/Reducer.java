@@ -1,5 +1,4 @@
 package mapreduce.core;
-
 import java.io.IOException;
 import java.util.List;
 

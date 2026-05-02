@@ -1,11 +1,6 @@
 package mapreduce.writables;
-
 import mapreduce.core.Writable;
 
-/**
- * Writable customizado que armazena o preço mínimo e máximo de um grupo.
- * Usado em Q6 com Combiner obrigatório.
- */
 public class MinMaxPriceWritable implements Writable {
     private double minPrice;
     private double maxPrice;

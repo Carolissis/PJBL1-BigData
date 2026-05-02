@@ -1,11 +1,6 @@
 package mapreduce.writables;
-
 import mapreduce.core.WritableComparable;
 
-/**
- * Chave composta (ano + país) implementada como WritableComparable.
- * Usada em Q9 — proibida a concatenação de strings para chaves compostas.
- */
 public class YearCountryKey implements WritableComparable<YearCountryKey> {
     private int    year;
     private String country;

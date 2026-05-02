@@ -1,11 +1,6 @@
 package mapreduce.writables;
-
 import mapreduce.core.WritableComparable;
 
-/**
- * Writable customizado Comparable para armazenar o Amount mínimo e máximo de um grupo.
- * Usado em Q9 com Combiner e YearCountryKey.
- */
 public class MinMaxAmountWritable implements WritableComparable<MinMaxAmountWritable> {
     private double minAmount;
     private double maxAmount;

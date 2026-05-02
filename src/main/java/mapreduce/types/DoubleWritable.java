@@ -1,5 +1,4 @@
 package mapreduce.types;
-
 import mapreduce.core.WritableComparable;
 import java.util.Locale;
 

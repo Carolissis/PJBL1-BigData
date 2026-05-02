@@ -1,17 +1,10 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q1 – Número de transações envolvendo o Brasil.
- * Colunas: [0]=country_or_area [1]=year  [2]=comm_code    [3]=commodity [4]=flow
- *          [5]=trade_usd      [6]=weight_kg [7]=quantity_name [8]=quantity [9]=category
- */
-public class Q1BrazilCount {
+public class BrasilCount {
 
     public static class MapQ1 extends Mapper<Text, IntWritable> {
         @Override

@@ -1,13 +1,8 @@
 package mapreduce.core;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/**
- * Orchestrates the MapReduce pipeline: Map → (Combiner) → Shuffle+Sort → Reduce → Output.
- * Implementação do zero, sem uso de biblioteca Hadoop.
- */
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class Job {
 
@@ -38,7 +33,6 @@ public class Job {
     public List<String> waitForCompletion(boolean verbose) throws Exception {
         if (verbose) System.out.println("\n[" + name + "] Iniciando...");
 
-        // ── MAP ─────────────────────────────────────────────────────────────
         Mapper mapper = mapperClass.getDeclaredConstructor().newInstance();
         List<Pair> mapOutput = new ArrayList<>();
 
@@ -59,23 +53,19 @@ public class Job {
         }
         if (verbose) System.out.println("[" + name + "] Map: " + mapOutput.size() + " pares gerados.");
 
-        // ── COMBINER (opcional) ──────────────────────────────────────────────
         if (combinerClass != null) {
             Reducer combiner = combinerClass.getDeclaredConstructor().newInstance();
             mapOutput = applyReducer(combiner, mapOutput);
             if (verbose) System.out.println("[" + name + "] Combiner: " + mapOutput.size() + " pares após combiner.");
         }
 
-        // ── SHUFFLE & SORT ───────────────────────────────────────────────────
         sortPairs(mapOutput);
         if (verbose) System.out.println("[" + name + "] Shuffle & Sort concluído.");
 
-        // ── REDUCE ───────────────────────────────────────────────────────────
         Reducer reducer = reducerClass.getDeclaredConstructor().newInstance();
         List<Pair> reduceOutput = applyReducer(reducer, mapOutput);
         if (verbose) System.out.println("[" + name + "] Reduce: " + reduceOutput.size() + " pares na saída.");
 
-        // ── WRITE OUTPUT ─────────────────────────────────────────────────────
         new File(outputPath).getParentFile().mkdirs();
         List<String> lines = new ArrayList<>();
         try (PrintWriter pw = new PrintWriter(
@@ -90,7 +80,6 @@ public class Job {
         return lines;
     }
 
-    // ── Helpers ─────────────────────────────────────────────────────────────
 
     private List<Pair> applyReducer(Reducer reducer, List<Pair> input) throws Exception {
         if (input.isEmpty()) return new ArrayList<>();

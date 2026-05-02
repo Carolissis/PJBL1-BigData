@@ -1,11 +1,6 @@
 package mapreduce.writables;
-
 import mapreduce.core.Writable;
 
-/**
- * Writable customizado para calcular média: armazena soma e contagem.
- * Usado em Q5 e Q7.
- */
 public class AvgWritable implements Writable {
     private double sum;
     private long   count;

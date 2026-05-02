@@ -1,5 +1,4 @@
 package mapreduce.types;
-
 import mapreduce.core.WritableComparable;
 
 public class IntWritable implements WritableComparable<IntWritable> {

@@ -1,17 +1,11 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
 import mapreduce.writables.AvgWritable;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q5 – Valor médio das transações (Price) por ano, somente no Brasil.
- * Writable customizado: AvgWritable (soma + contagem → média).
- */
-public class Q5AvgValuePerYearBrazil {
+public class AvgValuePerYearBrasil {
 
     public static class MapQ5 extends Mapper<IntWritable, AvgWritable> {
         @Override

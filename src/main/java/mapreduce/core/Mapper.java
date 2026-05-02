@@ -1,5 +1,4 @@
 package mapreduce.core;
-
 import java.io.IOException;
 
 public abstract class Mapper<K extends Writable, V extends Writable> {

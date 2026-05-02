@@ -1,15 +1,10 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q2 – Número de transações por ano.
- */
-public class Q2TransactionsByYear {
+public class TransactionsByYear {
 
     public static class MapQ2 extends Mapper<IntWritable, IntWritable> {
         @Override

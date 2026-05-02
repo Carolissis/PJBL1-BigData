@@ -1,11 +1,6 @@
 package mapreduce.writables;
-
 import mapreduce.core.WritableComparable;
 
-/**
- * Chave Double que ordena de forma DECRESCENTE (maior para menor).
- * Usada em Q8 Job 2 para ordenar o valor máximo por ano em ordem decrescente.
- */
 public class DescendingDoubleKey implements WritableComparable<DescendingDoubleKey> {
     private double value;
 

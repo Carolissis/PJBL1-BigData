@@ -1,21 +1,11 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
 import mapreduce.writables.DescendingDoubleKey;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q8 – Valor máximo das transações por ano no Brasil, ordenado do maior para o menor.
- * Concatenação de Jobs obrigatória:
- *   Job 1 → encontra o preço máximo por ano no Brasil
- *   Job 2 → reordena em ordem decrescente usando DescendingDoubleKey
- */
-public class Q8MaxValueSortedBrazil {
-
-    // ══════════════════════════ JOB 1 ══════════════════════════════
+public class MaxValueSortedBrasil {
 
     public static class MapQ8J1 extends Mapper<IntWritable, DoubleWritable> {
         @Override
@@ -49,9 +39,6 @@ public class Q8MaxValueSortedBrazil {
         }
     }
 
-    // ══════════════════════════ JOB 2 ══════════════════════════════
-    // Entrada: linhas "ano\tprecoMax" vindas do Job 1
-
     public static class MapQ8J2 extends Mapper<DescendingDoubleKey, IntWritable> {
         @Override
         public void map(long lineNum, String line, Context<DescendingDoubleKey, IntWritable> ctx)
@@ -76,8 +63,6 @@ public class Q8MaxValueSortedBrazil {
             }
         }
     }
-
-    // ══════════════════════════ EXECUÇÃO ═══════════════════════════
 
     public static List<String> runChained(String input, String intermediateOutput, String finalOutput)
             throws Exception {

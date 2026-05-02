@@ -1,17 +1,11 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
 import mapreduce.writables.MinMaxPriceWritable;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q6 – Transação mais cara e mais barata no Brasil em 2016.
- * Uso obrigatório de Combiner e writable customizado (MinMaxPriceWritable).
- */
-public class Q6MinMaxBrazil2016 {
+public class MinMaxBrasil {
 
     public static class MapQ6 extends Mapper<IntWritable, MinMaxPriceWritable> {
         @Override

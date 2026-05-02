@@ -1,18 +1,11 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.writables.MinMaxAmountWritable;
 import mapreduce.writables.YearCountryKey;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q9 – Transação com maior e menor Amount, por ano e país.
- * Uso obrigatório de Comparable writable (YearCountryKey) e Combiner.
- * Chave composta via YearCountryKey — sem concatenação de strings.
- */
-public class Q9MinMaxByYearCountry {
+public class MinMaxByYearCountry {
 
     public static class MapQ9 extends Mapper<YearCountryKey, MinMaxAmountWritable> {
         @Override

@@ -1,17 +1,11 @@
 package mapreduce.jobs;
-
 import mapreduce.core.*;
 import mapreduce.types.*;
 import mapreduce.writables.AvgWritable;
-
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Q7 – Valor médio das transações por ano, somente exportações (Export) no Brasil.
- * Uso obrigatório de Combiner e writable customizado (AvgWritable).
- */
-public class Q7AvgExportBrazil {
+public class AvgExportBrasil {
 
     public static class MapQ7 extends Mapper<IntWritable, AvgWritable> {
         @Override
