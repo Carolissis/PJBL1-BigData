@@ -44,6 +44,6 @@ public class MinMaxAmountWritable implements WritableComparable<MinMaxAmountWrit
 
     @Override
     public String toString() {
-        return String.format(java.util.Locale.US, "Minimo: %.2f | Maximo: %.2f", minAmount, maxAmount);
+        return String.format(java.util.Locale.US, "Min: %.2f | Max: %.2f", minAmount, maxAmount);
     }
 }

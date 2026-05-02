@@ -55,7 +55,7 @@ public class Main {
             System.out.println("[Q8] Concluido");
 
             exec(out, "Q9", "Transacao com maior e menor amount por ano e pais [YearCountryKey WritableComparable + Combiner]",
-                    MinMaxByYearCountry.buildJob(input, tmp("q9")));
+                    MinMaxByYearCountry.buildJob(input, tmp("q9")), " = ");
         }
 
         System.out.println();
@@ -63,9 +63,24 @@ public class Main {
     }
 
     private static void exec(PrintWriter out, String label, String title, Job job) throws Exception {
+        exec(out, label, title, job, "\t");
+    }
+
+    private static void exec(PrintWriter out, String label, String title, Job job, String sep) throws Exception {
         System.out.println("Executando " + label + "...");
         List<String> results = job.waitForCompletion(false);
+        escreve(out, label, title, results, sep);
         System.out.println("[" + label + "] Concluido");
+    }
+
+    private static void exec(PrintWriter out, String label, String title, List<String> results) {
+        escreve(out, label, title, results, "\t");
+    }
+
+    private static void escreve(PrintWriter out, String label, String title, List<String> lines, String sep) {
+        out.println(label + " - " + title);
+        for (String line : lines) out.println(sep.equals("\t") ? line : line.replace("\t", sep));
+        out.println();
     }
 
     private static String tmp(String name) {

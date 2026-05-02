@@ -24,7 +24,7 @@ public class TransactionsByCategory {
                 throws IOException, InterruptedException {
             int total = 0;
             for (IntWritable v : values) total += v.get();
-            ctx.write(key, new IntWritable(total));
+            ctx.write(new Text(key.get() + "="), new IntWritable(total));
         }
     }
 
