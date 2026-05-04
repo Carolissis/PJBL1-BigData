@@ -11,7 +11,7 @@ public class DescendingDoubleKey implements WritableComparable<DescendingDoubleK
 
     @Override
     public int compareTo(DescendingDoubleKey o) {
-        return Double.compare(o.value, this.value); // invertido → ordem decrescente
+        return Double.compare(o.value, this.value); 
     }
 
     @Override

@@ -22,7 +22,7 @@ public class MaxValueSortedBrasil {
                 int    year  = Integer.parseInt(yearStr);
                 double price = Double.parseDouble(priceStr);
                 ctx.write(new IntWritable(year), new DoubleWritable(price));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 
@@ -49,7 +49,7 @@ public class MaxValueSortedBrasil {
                 int    year  = Integer.parseInt(parts[0].trim());
                 double price = Double.parseDouble(parts[1].trim());
                 ctx.write(new DescendingDoubleKey(price), new IntWritable(year));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 

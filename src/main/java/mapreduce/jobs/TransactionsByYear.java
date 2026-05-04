@@ -17,7 +17,7 @@ public class TransactionsByYear {
             try {
                 int year = Integer.parseInt(yearStr);
                 ctx.write(new IntWritable(year), new IntWritable(1));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 

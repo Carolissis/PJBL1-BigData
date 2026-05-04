@@ -23,7 +23,7 @@ public class MinMaxBrasil {
                 if (year != 2016) return;
                 double price = Double.parseDouble(priceStr);
                 ctx.write(new IntWritable(2016), new MinMaxPriceWritable(price));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 

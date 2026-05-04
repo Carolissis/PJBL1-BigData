@@ -24,7 +24,7 @@ public class AvgExportBrasil {
                 int    year  = Integer.parseInt(yearStr);
                 double price = Double.parseDouble(priceStr);
                 ctx.write(new IntWritable(year), new AvgWritable(price, 1));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 

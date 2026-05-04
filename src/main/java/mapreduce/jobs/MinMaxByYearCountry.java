@@ -21,7 +21,7 @@ public class MinMaxByYearCountry {
                 int    year   = Integer.parseInt(yearStr);
                 double amount = Double.parseDouble(amountStr);
                 ctx.write(new YearCountryKey(year, country), new MinMaxAmountWritable(amount));
-            } catch (NumberFormatException e) { /* ignora dado inválido */ }
+            } catch (NumberFormatException e) { }
         }
     }
 
